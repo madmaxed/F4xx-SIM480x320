@@ -1193,11 +1193,17 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING true
 #define Y_MIN_ENDSTOP_INVERTING true
-#define Z_MIN_ENDSTOP_INVERTING true
+
+//#define Z_MIN_ENDSTOP_INVERTING true  //Tronxy default
+#define Z_MIN_ENDSTOP_INVERTING false  //Needed for BLTouch
+
 #define X_MAX_ENDSTOP_INVERTING true
 #define Y_MAX_ENDSTOP_INVERTING true
 #define Z_MAX_ENDSTOP_INVERTING true
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true
+
+//#define Z_MIN_PROBE_ENDSTOP_INVERTING true  //Tronxy default
+#define Z_MIN_PROBE_ENDSTOP_INVERTING false  //Needed for BLTouch
+
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1500,7 +1506,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH
 
 /**
  * MagLev V4 probe by MDD
@@ -1671,7 +1677,8 @@
 || TRONXY_PROJ == PROJ_X5SA_PRO_3E \
 || TRONXY_PROJ == PROJ_X5SA_g \
 || TRONXY_PROJ == PROJ_X5SA_MINI
-#define NOZZLE_TO_PROBE_OFFSET { -38.5, -10, 0 }
+//#define NOZZLE_TO_PROBE_OFFSET { -38.5, -10, 0 }  //Tronxy Default for 400_2E
+#define NOZZLE_TO_PROBE_OFFSET { -41.5, 0, -4.3 }    //Gregs BLTouch offsets
 #elif TRONXY_PROJ == PROJ_VEHO600 \
 || TRONXY_PROJ == PROJ_X5SA600 \
 || TRONXY_PROJ == PROJ_VEHO500 \
@@ -2399,7 +2406,7 @@
   || TRONXY_PROJ == PROJ_VEHO800_2E
   #define GRID_MAX_POINTS_X 5 //因为屏幕显示范围不够,本固件最大不能超过5
   #else
-  #define GRID_MAX_POINTS_X 4
+  #define GRID_MAX_POINTS_X 7
   #endif
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
@@ -2543,8 +2550,10 @@
 #endif
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+  //#define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing  Tronxy Default
+  //#define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing  Tronxy Default
+  #define Z_SAFE_HOMING_X_POINT (X_BED_SIZE / 2)  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT (Y_BED_SIZE / 2)  // Y point for Z homing
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)

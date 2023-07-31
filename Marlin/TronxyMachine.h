@@ -255,7 +255,7 @@
 #define INVERT_E0_DIR             true //TITAN:true,true
 #define INVERT_E1_DIR             true
 #define USE_EXTRUDER              1 //TITAN:1,BMG:2,TAOLI:3,general:4
-#define FIX_MOUNTED_PROBE
+//#define FIX_MOUNTED_PROBE         //Turned off for BLTouch
 
 #elif TRONXY_PROJ == PROJ_XY3SE_V2
 
