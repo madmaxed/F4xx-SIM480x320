@@ -60,7 +60,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Mxd3D Technologies" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -2316,9 +2316,10 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#if ENABLED(FIX_MOUNTED_PROBE)
+#if ENABLED(FIX_MOUNTED_PROBE)      //Tronxy default setting in TronxyMachine.h
 #define AUTO_BED_LEVELING_BILINEAR
 #endif
+#define AUTO_BED_LEVELING_BILINEAR  //Gregs BLTouch setting
 // #define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -2327,10 +2328,10 @@
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-#if ENABLED(FIX_MOUNTED_PROBE)
+#if ENABLED(FIX_MOUNTED_PROBE)    //Tronxy default setting in TronxyMachine.h
 #define RESTORE_LEVELING_AFTER_G28
 #endif
-//#define ENABLE_LEVELING_AFTER_G28
+#define ENABLE_LEVELING_AFTER_G28 //Gregs BLTouch setting
 
 /**
  * Auto-leveling needs preheating
@@ -2471,7 +2472,7 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-//#define LCD_BED_LEVELING
+#define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
@@ -2552,8 +2553,8 @@
 #if ENABLED(Z_SAFE_HOMING)
   //#define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing  Tronxy Default
   //#define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing  Tronxy Default
-  #define Z_SAFE_HOMING_X_POINT (X_BED_SIZE / 2)  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT (Y_BED_SIZE / 2)  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT (X_BED_SIZE / 2)  // Gregs X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT (Y_BED_SIZE / 2)  // Gregs Y point for Z homing
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
@@ -3037,7 +3038,7 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-//#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 0
 //#define LCD_FEEDBACK_FREQUENCY_HZ 5000
 
 //=============================================================================

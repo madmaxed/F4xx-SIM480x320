@@ -213,7 +213,7 @@
 //
 // Misc
 //
-#define BEEPER_PIN                          PA8
+#define BEEPER_PIN                          PA8  //Gregs beeper disable
 //#define LED_PIN                           PG10
 #define PS_ON_PIN                           PG10 //YSZ-COMMENT:暂时以LED模拟开关机
 #if TRONXY_BACKUP_POWER
